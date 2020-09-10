@@ -25,7 +25,7 @@ int main(int argc, const char * argv[]) {
 
 //choix de multiset pour autoriser les doublons dans les scores recueillis
    std::multiset<Score> infoJeu;
-   std::multiset<Score>::iterator iterateurJoueurs;
+
 
    std::ifstream fichierLu(pathLecture);
 
@@ -44,9 +44,9 @@ int main(int argc, const char * argv[]) {
       }
    }
    std::ofstream fichierEcrit(pathEcriture);
-
+   std::multiset<Score>::reverse_iterator iterateurJoueurs;
    if (fichierEcrit.is_open()){
-      for (iterateurJoueurs = infoJeu.begin(); iterateurJoueurs!=infoJeu.end(); iterateurJoueurs++){
+      for (iterateurJoueurs = infoJeu.rbegin(); iterateurJoueurs!=infoJeu.rend(); iterateurJoueurs++){
       fichierEcrit << iterateurJoueurs->getLogin() << std::endl;
       fichierEcrit << iterateurJoueurs->getIdentifiant() << std::endl;
       fichierEcrit << "Asterostorm=" << iterateurJoueurs->getScore() << std::endl;

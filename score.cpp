@@ -16,7 +16,7 @@ Score::Score(unsigned long identifiant, std::string login, unsigned long score) 
 
 //operator< redéfini avec > pour garder les scores dans l'ordre décroissant
 bool Score::operator<(const Score& scoreAComparer) const {
-   return this->score > scoreAComparer.score;
+   return this->score < scoreAComparer.score;
 }
 
 long Score::getIdentifiant() const{
